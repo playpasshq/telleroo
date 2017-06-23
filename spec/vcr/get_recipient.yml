@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.telleroo.com/recipients/95a3fd24-a96b-46d6-922e-c235fd1749cc
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - 78a8ca4e934b6147556c3a793e2ecce53e50a718bac21f7a178b3d4d6a1b257804028bf000b2514af3bcdebd091a1659f26c335aea34d71a81cf376c3d8402b0
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.12.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Fri, 23 Jun 2017 20:43:21 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"e4d18d91df13e99e0cff9e34ffbe15dc"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 3ce588d3-d212-4cd7-b9a3-91624bc010bd
+      X-Runtime:
+      - '0.024815'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"recipient":{"id":"95a3fd24-a96b-46d6-922e-c235fd1749cc","name":"Nick
+        Lloyd","currency_code":"GBP","account_no":"12345678","sort_code":"112234","legal_type":"PRIVATE"}}'
+    http_version: 
+  recorded_at: Fri, 23 Jun 2017 20:43:13 GMT
+recorded_with: VCR 3.0.3

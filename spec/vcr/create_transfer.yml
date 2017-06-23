@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.telleroo.com/bank_transfers
+    body:
+      encoding: UTF-8
+      string: '{"account_id":"020a45e4-dfcf-49bf-be16-ba82a1b1e691","currency_code":"GBP","amount":600,"recipient_id":"a6a2b79c-33b5-4ed5-90fd-bfb8f1d4085a","idempotent_key":987654321,"reference":"foobar"}'
+    headers:
+      Authorization:
+      - 78a8ca4e934b6147556c3a793e2ecce53e50a718bac21f7a178b3d4d6a1b257804028bf000b2514af3bcdebd091a1659f26c335aea34d71a81cf376c3d8402b0
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.12.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Fri, 23 Jun 2017 21:08:02 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"e293400a6b8dd46789a21755d03bc163"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 781a069a-b93f-4ca8-9782-320d55f07beb
+      X-Runtime:
+      - '0.317125'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"transaction":{"id":"45162d09-a4a6-45ce-bfc9-82fe200f350e","processed_at":"2017-06-23T21:08:02Z","transaction_type":"Debit","currency_code":"GBP","amount":600,"recipient_id":"a6a2b79c-33b5-4ed5-90fd-bfb8f1d4085a","status":"Preparing
+        Payment","status_info":"Creating payment request","reconciliation":null,"reference":"foobar","account_id":"020a45e4-dfcf-49bf-be16-ba82a1b1e691","tag":null,"end_balance":99200,"idempotent_key":"987654321","created_at":"2017-06-23T21:08:02Z","updated_at":"2017-06-23T21:08:02Z"}}'
+    http_version: 
+  recorded_at: Fri, 23 Jun 2017 21:07:54 GMT
+recorded_with: VCR 3.0.3

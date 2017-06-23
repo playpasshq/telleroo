@@ -1,5 +1,4 @@
-require 'net/http'
-require 'uri'
+require 'multi_json'
 
 module Telleroo
   # Handles HTTP requests
@@ -25,10 +24,17 @@ module Telleroo
           request.url(path, params)
         when :post
           request.path = path
-          request.body = params unless params.empty?
+          request.body = JSON.dump(params) unless params.empty?
         end
       end
-      response.body
+
+      @last_response = response
+      load_json(response.body) unless response.body.empty?
+    end
+
+    # @return [Hash]
+    def load_json(response)
+      MultiJson.load(response, symbolize_keys: true)
     end
   end
 end

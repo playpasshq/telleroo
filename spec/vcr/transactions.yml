@@ -1,0 +1,110 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.telleroo.com/transactions?account_id=020a45e4-dfcf-49bf-be16-ba82a1b1e691&end_date=09-07-2017&page=1&start_date=09-06-2017
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - 78a8ca4e934b6147556c3a793e2ecce53e50a718bac21f7a178b3d4d6a1b257804028bf000b2514af3bcdebd091a1659f26c335aea34d71a81cf376c3d8402b0
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.12.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Fri, 23 Jun 2017 20:34:50 GMT
+      Connection:
+      - keep-alive
+      Per-Page:
+      - '40'
+      Total:
+      - '3'
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"4fe4376cc1fb6234ebca0ba3bbf3a71a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e03769b0-aba8-4e25-b427-1ddd4c9fd9c7
+      X-Runtime:
+      - '0.148357'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"transactions":[{"id":"7a53b810-0eaa-47c4-b6d5-3424a9060159","processed_at":"2017-06-16T09:15:11Z","transaction_type":"Credit","currency_code":"GBP","amount":100000,"recipient_id":null,"status":"Credit","status_info":"Funds
+        successfully credited","reconciliation":null,"reference":"Play Money","account_id":"020a45e4-dfcf-49bf-be16-ba82a1b1e691","tag":null,"end_balance":100000,"idempotent_key":null,"created_at":"2017-06-16T09:15:11Z","updated_at":"2017-06-16T09:15:11Z"},{"id":"f005c32b-cc45-4aa0-9845-6c688465f2a8","processed_at":"2017-06-16T09:15:48Z","transaction_type":"Debit","currency_code":"GBP","amount":100,"recipient_id":"427743be-d360-4a58-a2b5-d5ea65ffb87d","status":"Payment
+        Sent","status_info":"Your payment has been sent to the recipients bank","reconciliation":null,"reference":"Test
+        debit","account_id":"020a45e4-dfcf-49bf-be16-ba82a1b1e691","tag":null,"end_balance":99900,"idempotent_key":null,"created_at":"2017-06-16T09:15:48Z","updated_at":"2017-06-16T09:15:58Z"},{"id":"9e99c5c6-7288-4141-bddd-e08c8bd42f13","processed_at":"2017-06-19T14:07:11Z","transaction_type":"Debit","currency_code":"GBP","amount":100,"recipient_id":"95a3fd24-a96b-46d6-922e-c235fd1749cc","status":"Payment
+        Sent","status_info":"Your payment has been sent to the recipients bank","reconciliation":null,"reference":null,"account_id":"020a45e4-dfcf-49bf-be16-ba82a1b1e691","tag":"Lollapalooza
+        Refund","end_balance":99800,"idempotent_key":"123456789","created_at":"2017-06-19T14:07:11Z","updated_at":"2017-06-19T15:12:40Z"}]}'
+    http_version: 
+  recorded_at: Fri, 23 Jun 2017 20:34:42 GMT
+- request:
+    method: get
+    uri: https://sandbox.telleroo.com/accounts
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - 78a8ca4e934b6147556c3a793e2ecce53e50a718bac21f7a178b3d4d6a1b257804028bf000b2514af3bcdebd091a1659f26c335aea34d71a81cf376c3d8402b0
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.12.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Fri, 23 Jun 2017 21:43:56 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"1895c04157dab0f4f1f4966cb2270428"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - cbd3cd95-cae9-4a0d-8a32-12dc15b8bcf9
+      X-Runtime:
+      - '0.030724'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"accounts":[{"id":"020a45e4-dfcf-49bf-be16-ba82a1b1e691","name":"Playpass","currency_code":"GBP","tag":null,"balance":99200,"account_no":"12156182","sort_code":"233470","status":"initialized"}]}'
+    http_version: 
+  recorded_at: Fri, 23 Jun 2017 21:43:48 GMT
+recorded_with: VCR 3.0.3
