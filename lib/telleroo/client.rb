@@ -1,6 +1,14 @@
+require 'telleroo/connection'
+require 'telleroo/request'
+require 'telleroo/api'
+
 module Telleroo
   # Client for the Telleroo API
   class Client
+    include Telleroo::Connection
+    include Telleroo::Request
+    include Telleroo::API
+
     # Define the same set of accessors as the Telleroo module
     attr_accessor *Configuration::VALID_CONFIG_KEYS
 
@@ -18,7 +26,6 @@ module Telleroo
       Configuration::VALID_CONFIG_KEYS.each do |key|
         send("#{key}=", merged_options[key])
       end
-
       yield(self) if block_given?
     end
   end

@@ -1,6 +1,11 @@
+require 'active_support/inflector'
 require 'telleroo/version'
 require 'telleroo/configuration'
 require 'telleroo/client'
+
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.acronym 'API'
+end
 
 module Telleroo
   def self.config

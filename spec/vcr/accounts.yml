@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.telleroo.com/accounts
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - 78a8ca4e934b6147556c3a793e2ecce53e50a718bac21f7a178b3d4d6a1b257804028bf000b2514af3bcdebd091a1659f26c335aea34d71a81cf376c3d8402b0
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.12.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Fri, 23 Jun 2017 15:21:33 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"d23ab6c6d7ac5a958ba6820eedf51d90"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b09ca03a-1400-4279-a603-b3d0d638e491
+      X-Runtime:
+      - '0.159329'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"accounts":[{"id":"020a45e4-dfcf-49bf-be16-ba82a1b1e691","name":"Playpass","currency_code":"GBP","tag":null,"balance":99800,"account_no":"12156182","sort_code":"233470","status":"initialized"}]}'
+    http_version:
+  recorded_at: Fri, 23 Jun 2017 15:21:25 GMT
+recorded_with: VCR 3.0.3

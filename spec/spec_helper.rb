@@ -1,13 +1,8 @@
 require 'bundler/setup'
-require 'simplecov'
 require 'webmock/rspec'
 require 'vcr'
 
 require 'telleroo'
-
-SimpleCov.start do
-  add_filter '/spec/'
-end
 
 Dir[File.dirname(__FILE__) + '/support/**/*.rb'].each { |f| require f }
 
