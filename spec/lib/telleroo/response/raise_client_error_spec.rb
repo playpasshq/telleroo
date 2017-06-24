@@ -39,6 +39,18 @@ RSpec.describe Telleroo::Response::RaiseClientError do
     end
   end
 
+  context 'when status is 422' do
+    before do
+      env[:status] = 422
+    end
+
+    it 'raises Unprocessable' do
+      expect {
+        subject.on_complete(env)
+      }.to raise_error(Telleroo::Error::Unprocessable)
+    end
+  end
+
   context 'when status is 429' do
     before do
       env[:status] = 429

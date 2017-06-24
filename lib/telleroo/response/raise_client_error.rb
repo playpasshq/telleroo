@@ -15,6 +15,8 @@ module Telleroo
           raise Telleroo::Error::Unauthorized.new body, headers
         when 406
           raise Telleroo::Error::NotAcceptable.new body, headers
+        when 422
+          raise Telleroo::Error::Unprocessable.new body, headers
         when 429
           raise Telleroo::Error::RateLimit.new body, headers
         end

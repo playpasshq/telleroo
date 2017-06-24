@@ -8,10 +8,10 @@ module Telleroo
     private
 
     def connection
-      @connection ||= Faraday.new(url: Telleroo.config.endpoint) do |faraday|
+      @connection ||= Faraday.new(url: @endpoint) do |faraday|
         faraday.use Telleroo::Response::RaiseClientError
         faraday.use Telleroo::Response::RaiseServerError
-        faraday.headers['Authorization'] = Telleroo.config.authorization_token
+        faraday.headers['Authorization'] = @authorization_token
         faraday.headers['Content-Type'] = 'application/json'
         faraday.adapter Faraday.default_adapter
       end

@@ -14,7 +14,8 @@ module Telleroo
 
     class ClientError < Telleroo::Error; end
     class Unauthorized < Error::ClientError; end
-    class RateLimit < Error::ClientError; end
     class NotAcceptable < Error::ClientError; end
+    class Unprocessable < Error::ClientError; end
+    class RateLimit < Error::ClientError; end
   end
 end

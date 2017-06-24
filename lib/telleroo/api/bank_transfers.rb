@@ -53,6 +53,35 @@ module Telleroo
 
         post('bank_transfers', params)
       end
+
+      # Send all params to both create a Recipient and transfer funds in
+      # a single call.
+
+      # {
+      #   "bank_transfer": {
+      #     "id": "842963c5-e230-42ef-8de8-2b7a459026",
+      #     "processed_at": "2016-12-02T12:15:22.486Z",
+      #     "transaction_type": "Debit",
+      #     "currency_code": "GBP",
+      #     "amount": 100,
+      #     "recipient_id": "ff17b231-2bc4-485e-967e-231867e15fd6",
+      #     "status": "Preparing Payment",
+      #     "status_info": "Creating payment request",
+      #     "reconciliation": "f9q3408rh3",
+      #     "reference": "PayslipDec16",
+      #     "account_id": "ed5af7d2-741c-4905-a3ba-66d332d604",
+      #     "tag": "Payroll",
+      #     "end_balance": 2100,
+      #     "idempotent_key": "2130948",
+      #     "created_at": "2017-3-08T13:15:32.237Z",
+      #     "updated_at": "2017-3-08T13:15:32.237Z"
+      #   }
+      # }
+
+      # @return [Hash]
+      def create_adhoc_transfer(params)
+        post('adhoc_bank_transfers', params)
+      end
     end
   end
 end

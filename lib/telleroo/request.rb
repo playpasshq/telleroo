@@ -17,6 +17,7 @@ module Telleroo
 
     private
 
+    # @return [Hash]
     def request(method, path, params, _options)
       response = connection.run_request(method, nil, nil, nil) do |request|
         case method.to_sym
@@ -32,7 +33,6 @@ module Telleroo
       load_json(response.body) unless response.body.empty?
     end
 
-    # @return [Hash]
     def load_json(response)
       MultiJson.load(response, symbolize_keys: true)
     end
