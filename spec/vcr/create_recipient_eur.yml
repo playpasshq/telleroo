@@ -5,7 +5,7 @@ http_interactions:
     uri: https://sandbox.telleroo.com/recipients
     body:
       encoding: UTF-8
-      string: '{"name":"Nick Lloyd","currency_code":"GBP","account_no":"12345678","sort_code":"123456"}'
+      string: '{"name":"Rick Floyd","currency_code":"EUR","iban":"GB04BARC20474473160944","bic":"BARCGB22"}'
     headers:
       Authorization:
       - 78a8ca4e934b6147556c3a793e2ecce53e50a718bac21f7a178b3d4d6a1b257804028bf000b2514af3bcdebd091a1659f26c335aea34d71a81cf376c3d8402b0
@@ -25,19 +25,19 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 23 Jun 2017 21:02:59 GMT
+      - Sat, 24 Jun 2017 07:12:20 GMT
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"fcd08e1a88b5cbb5fdfff4c486523fc1"
+      - W/"b6a019e9dc51c007e29fb70a734f1019"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - eee0fce0-08eb-429f-bf6c-83a76d5e8fd3
+      - 940b55b0-b6c1-4bf2-8033-a1ad8223c784
       X-Runtime:
-      - '0.077194'
+      - '0.059270'
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
@@ -46,8 +46,8 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"recipient":{"id":"a6a2b79c-33b5-4ed5-90fd-bfb8f1d4085a","name":"Nick
-        Lloyd","currency_code":"GBP","account_no":"12345678","sort_code":"123456","legal_type":"PRIVATE"}}'
+      string: '{"recipient":{"id":"1482e43f-ed18-49f0-b736-3e6cb288acda","name":"Rick
+        Floyd","currency_code":"EUR","iban":"GB04BARC20474473160944","bic":"BARCGB22","legal_type":"PRIVATE"}}'
     http_version: 
-  recorded_at: Fri, 23 Jun 2017 21:02:51 GMT
+  recorded_at: Sat, 24 Jun 2017 07:12:10 GMT
 recorded_with: VCR 3.0.3

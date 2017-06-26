@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.telleroo.com/recipients
+    body:
+      encoding: UTF-8
+      string: '{"name":"Nick Lloyd","currency_code":"GBP","account_no":"72345678","sort_code":"623456"}'
+    headers:
+      Authorization:
+      - 78a8ca4e934b6147556c3a793e2ecce53e50a718bac21f7a178b3d4d6a1b257804028bf000b2514af3bcdebd091a1659f26c335aea34d71a81cf376c3d8402b0
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.12.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Sat, 24 Jun 2017 07:12:19 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"6dde8f556bfe5fecf9e34fe8b32e9261"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b20dd3fa-1d2d-4603-aa63-22ad8d2b73ef
+      X-Runtime:
+      - '0.062313'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"recipient":{"id":"2c677dcd-5040-4f69-ab7c-64fe97a41e98","name":"Nick
+        Lloyd","currency_code":"GBP","account_no":"72345678","sort_code":"623456","legal_type":"PRIVATE"}}'
+    http_version: 
+  recorded_at: Sat, 24 Jun 2017 07:12:10 GMT
+recorded_with: VCR 3.0.3

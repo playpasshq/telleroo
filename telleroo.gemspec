@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.description   = 'A Ruby interface to the Telleroo API.'
   spec.summary       = spec.description
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/playpasshq/Telleroo'
   spec.license       = 'MIT'
 
   # # Prevent pushing this gem to RubyGems.org. To allow pushes either set the

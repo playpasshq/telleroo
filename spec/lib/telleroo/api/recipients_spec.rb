@@ -64,37 +64,62 @@ RSpec.describe Telleroo::API::Recipients do
     end
   end
 
-  describe '#create_recipient', vcr: { cassette_name: 'create_recipient' } do
-    def do_post
-      subject.create_recipient(
-        name: 'Nick Lloyd',
-        currency_code: 'GBP',
-        options: {
-          account_no: '12345678',
-          sort_code: '123456'
-        }
-      )
+  describe '#create_recipient' do
+    context 'when account is GBP', vcr: { cassette_name: 'create_recipient_gbp' } do
+      def do_post
+        subject.create_recipient(
+          name: 'Nick Lloyd',
+          currency_code: 'GBP',
+          options: {
+            account_no: '72345678',
+            sort_code: '623456'
+          }
+        )
+      end
+
+      it 'is successful' do
+        do_post
+        expect(client.last_response.status).to eq(200)
+      end
+
+      it 'returns the recipient' do
+        response = do_post
+        expect(response[:recipient][:id]).to be_present
+      end
+
+      it 'calls post on /recipients with params' do
+        expect(subject).to receive(:post).with(
+          'recipients',
+          name: 'Nick Lloyd',
+          currency_code: 'GBP',
+          account_no: '72345678',
+          sort_code: '623456'
+        )
+        do_post
+      end
     end
 
-    it 'is successful' do
-      do_post
-      expect(client.last_response.status).to eq(200)
-    end
+    context 'when account is EUR', vcr: { cassette_name: 'create_recipient_eur' } do
+      def do_post
+        subject.create_recipient(
+          name: 'Rick Floyd',
+          currency_code: 'EUR',
+          options: {
+            iban: 'GB04BARC20474473160944',
+            bic: 'BARCGB22'
+          }
+        )
+      end
 
-    it 'returns the recipient' do
-      response = do_post
-      expect(response[:recipient][:id]).to be_present
-    end
+      it 'is successful' do
+        do_post
+        expect(client.last_response.status).to eq(200)
+      end
 
-    it 'calls post on /recipients with params' do
-      expect(subject).to receive(:post).with(
-        'recipients',
-        name: 'Nick Lloyd',
-        currency_code: 'GBP',
-        account_no: '12345678',
-        sort_code: '123456'
-      )
-      do_post
+      it 'returns the recipient' do
+        response = do_post
+        expect(response[:recipient][:id]).to be_present
+      end
     end
   end
 end
