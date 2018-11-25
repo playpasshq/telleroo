@@ -42,6 +42,18 @@ end
 
 ```
 
+The `http_adapter` option can be used to set the underlying HTTP adapter for Faraday:
+
+```
+config.http_adapter = :typhoeus
+```
+
+Use an array to pass further options to the HTTP adapter itself:
+
+```
+config.http_adapter = [:typhoeus, timeout_ms: 100]
+```
+
 ## Usage
 
 After configuring a `client`, the following calls are available to you:

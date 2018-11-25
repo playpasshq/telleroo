@@ -5,6 +5,7 @@ RSpec.describe Telleroo::Configuration do
     Telleroo.configure do |config|
       config.authorization_token = 'foo'
       config.endpoint = 'https://example.com/v1'
+      config.http_adapter = :typhoeus
     end
   end
 
@@ -27,6 +28,17 @@ RSpec.describe Telleroo::Configuration do
     it 'uses sandbox as default endpoint' do
       endpoint = Telleroo::Configuration.new.endpoint
       expect(endpoint).to eq('https://sandbox.telleroo.com')
+    end
+  end
+
+  describe '.http_adapter' do
+    it 'should return default http adapter' do
+      expect(Telleroo.config.http_adapter).to eq(:typhoeus)
+    end
+
+    it 'uses Faraday.default_adapter as default http adapter' do
+      endpoint = Telleroo::Configuration.new.http_adapter
+      expect(endpoint).to eq(Faraday.default_adapter)
     end
   end
 
