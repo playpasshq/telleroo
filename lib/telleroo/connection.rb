@@ -13,7 +13,7 @@ module Telleroo
         faraday.use Telleroo::Response::RaiseServerError
         faraday.headers['Authorization'] = @authorization_token
         faraday.headers['Content-Type'] = 'application/json'
-        faraday.adapter Faraday.default_adapter
+        faraday.adapter *@http_adapter
       end
     end
   end
