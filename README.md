@@ -22,35 +22,31 @@ Or install it yourself as:
 
 `Telleroo::Client` can be configured from an initializer:
 
-```
-
-  Telleroo.configure do |config|
-    config.authorization_token = "YOUR_AUTH_TOKEN"
-    config.endpoint = 'https://sandbox.telleroo.com'
-  end
-
+```ruby
+Telleroo.configure do |config|
+  config.authorization_token = "YOUR_AUTH_TOKEN"
+  config.endpoint = 'https://sandbox.telleroo.com'
+end
 ```
 
 or by passing an options block to `Telleroo::Client.new`
 
-```
-
+```ruby
 client = Telleroo::Client.new do |config|
   config.authorization_token = "YOUR_AUTH_TOKEN"
   config.endpoint = 'https://sandbox.telleroo.com'
 end
-
 ```
 
 The `http_adapter` option can be used to set the underlying HTTP adapter for Faraday:
 
-```
+```ruby
 config.http_adapter = :typhoeus
 ```
 
 Use an array to pass further options to the HTTP adapter itself:
 
-```
+```ruby
 config.http_adapter = [:typhoeus, timeout_ms: 100]
 ```
 
@@ -61,7 +57,8 @@ After configuring a `client`, the following calls are available to you:
 **List Accounts**
 
 Retrieves all bank accounts assigned to your company
-```
+
+```ruby
 client.accounts()
 
 ```
@@ -69,7 +66,8 @@ client.accounts()
 **List Recipients**
 
 Retrieves all recipients under your company.
-```
+
+```ruby
 client.recipients()
 
 ```
@@ -78,7 +76,7 @@ client.recipients()
 
 Retrieves a single recipient given a recipient_id.
 
-```
+```ruby
 client.get_recipient("ff17b231-2bc4-485e-967e-231867e15fd6")
 
 ```
@@ -89,21 +87,22 @@ Creates a single recipient.
 
 Note: `GBP` Recipients require `account_no` and `sort_code` passed in `options` while `EUR` require `iban` and `bic`.
 
-```
-client.create_recipient(name: 'Nick Lloyd',
-                        currency_code: 'GBP',
-                        options: {
-                          account_no: '72345678',
-                          sort_code: '623456'
-                        }
-                      )
+```ruby
+client.create_recipient(
+  name: 'Nick Lloyd',
+  currency_code: 'GBP',
+  options: {
+    account_no: '72345678',
+    sort_code: '623456'
+  }
+)
 ```
 
 **Delete Recipient**
 
 Retrieves a single recipient given a recipient_id.
 
-```
+```ruby
 client.delete_recipient("ff17b231-2bc4-485e-967e-231867e15fd6")
 
 ```
@@ -112,36 +111,36 @@ client.delete_recipient("ff17b231-2bc4-485e-967e-231867e15fd6")
 
 Triggers an instantaneous bank transfer to a existing recipient from your account. [See docs](http://docs.telleroo.com/#bank-transfers-to-recipient-id) for additional available params to pass into options.
 
-```
+```ruby
 client.create_transfer(
-        account_id: 'a6a2b79c-33b5-4ed5-90fd-bfb8f1d4085a',
-        currency_code: 'GBP',
-        amount: 10000,
-        recipient_id: 'ff17b231-2bc4-485e-967e-231867e15fd6',
-        idempotent_key: 'abcd-123456789-efgh',
-        options: {
-          reference: 'foobar'
-        }
-      )
+  account_id: 'a6a2b79c-33b5-4ed5-90fd-bfb8f1d4085a',
+  currency_code: 'GBP',
+  amount: 10000,
+  recipient_id: 'ff17b231-2bc4-485e-967e-231867e15fd6',
+  idempotent_key: 'abcd-123456789-efgh',
+  options: {
+    reference: 'foobar'
+  }
+)
 ```
 
 **Create an Adhoc Bank Transfer**
 
 Send all params required to both create a Recipient and transfer funds in a single call.
 
-```
-client.create_adhoc_transfer({
-        account_id: 'a6a2b77c-33b5-4ed5-90fd-bfb8f1d4085a',
-        currency_code: 'GBP',
-        amount: 10000,
-        recipient_name: 'Rick Floyd',
-        account_no: 12345678,
-        sort_code: 665544,
-        idempotent_key: 'abcd-123456789-efgh',
-        reference: 'foo',
-        tag: 'bar',
-        reconciliation: 'baz'
-      })
+```ruby
+client.create_adhoc_transfer(
+  account_id: 'a6a2b77c-33b5-4ed5-90fd-bfb8f1d4085a',
+  currency_code: 'GBP',
+  amount: 10000,
+  recipient_name: 'Rick Floyd',
+  account_no: 12345678,
+  sort_code: 665544,
+  idempotent_key: 'abcd-123456789-efgh',
+  reference: 'foo',
+  tag: 'bar',
+  reconciliation: 'baz'
+)
 
 ```
 
@@ -149,12 +148,12 @@ client.create_adhoc_transfer({
 
 Returns all activity on a specified bank account. [See docs](http://docs.telleroo.com/#transactions-list) for additional available params to pass into options.
 
-```
+```ruby
 client.transactions(
-        account_id: 'a6a2b77c-33b5-4ed5-90fd-bfb8f1d4085a',
-        start_date: '09-06-2017',
-        end_date: '09-07-2017'
-      )
+  account_id: 'a6a2b77c-33b5-4ed5-90fd-bfb8f1d4085a',
+  start_date: '09-06-2017',
+  end_date: '09-07-2017'
+)
 
 ```
 
@@ -162,8 +161,8 @@ client.transactions(
 
 Retrieves all relevant data of a single transaction including the transfer status.
 
-```
-get_transaction(id)
+```ruby
+client.get_transaction(id)
 
 ```
 
