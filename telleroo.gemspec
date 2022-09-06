@@ -36,7 +36,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'multi_json'
 
   spec.add_development_dependency 'bundler', '~> 1.14'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rake', '>= 12.3.3'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'vcr', '~> 3.0'
   spec.add_development_dependency 'webmock', '~> 3.0'
